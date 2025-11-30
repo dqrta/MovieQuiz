@@ -116,6 +116,7 @@ final class MovieQuizViewController: UIViewController {
             self.currentQuestionIndex = 0
             self.correctAnswers = 0
             self.questionImageView.layer.borderColor = nil
+            self.questionImageView.layer.borderWidth = 0
             
             let viewModel = self.getCurrentQuestionModelView()
             self.show(quiz: viewModel)

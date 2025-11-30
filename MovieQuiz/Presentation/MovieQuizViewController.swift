@@ -2,7 +2,7 @@ import UIKit
 
 
 final class MovieQuizViewController: UIViewController {
-        
+    
     private struct QuizQuestion {
         let image: String
         let text: String
@@ -159,6 +159,7 @@ final class MovieQuizViewController: UIViewController {
             currentQuestionIndex += 1
             
             questionImageView.layer.borderColor = nil
+            questionImageView.layer.borderWidth = 0
             
             let viewModel = getCurrentQuestionModelView()
             show(quiz: viewModel)
@@ -173,5 +174,18 @@ final class MovieQuizViewController: UIViewController {
     @IBAction private func noButtonClicked(_ sender: Any) {
         let currentQuestion = questions[currentQuestionIndex]
         showAnswerResult(isCorrect: !currentQuestion.correctAnswer)
+    }
+    
+    @IBAction func yesButtonPushed(_ sender: Any) {
+        setEnabledButtons(state: false)
+    }
+    @IBAction func noButtonPushed(_ sender: Any) {
+        setEnabledButtons(state: false)
+    }
+    @IBAction func yesButtonDragOutside(_ sender: Any) {
+        setEnabledButtons(state: true)
+    }
+    @IBAction func noButtonDragOutside(_ sender: Any) {
+        setEnabledButtons(state: true)
     }
 }

@@ -85,6 +85,8 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="noButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sOU-iY-aoW"/>
+                                                    <action selector="noButtonDragOutside:" destination="BYZ-38-t0r" eventType="touchDragOutside" id="naL-CO-A76"/>
+                                                    <action selector="noButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="wAM-c4-Iwj"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgi-Gn-e05" userLabel="Yes Button">
@@ -105,6 +107,8 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="yesButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5U7-UT-cqV"/>
+                                                    <action selector="yesButtonDragOutside:" destination="BYZ-38-t0r" eventType="touchDragOutside" id="VZ4-bn-S9Q"/>
+                                                    <action selector="yesButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="vxy-Zd-aqj"/>
                                                 </connections>
                                             </button>
                                         </subviews>

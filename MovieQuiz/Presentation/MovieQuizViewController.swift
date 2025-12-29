@@ -5,6 +5,7 @@ final class MovieQuizViewController: UIViewController {
     
     private enum Strings {
         static let correctAnswersText = "Вы ответили правильно на %d вопрос(ов) из %d\n" +
+                                        "Всего игр: %d\n" +
                                         "Рекорд: %d/%d (%@)\n" +
                                         "Ваша статистика: %.2f %%"
         static let roundOverText = "Раунд окончен"
@@ -16,7 +17,7 @@ final class MovieQuizViewController: UIViewController {
     private var questionsAmount: Int = 10
     
     private var questionFactory: QuestionFactoryProtocol?
-    private var alertPresenter: AlertPresenter?
+    private var alertPresenter: ResultAlertPresenter?
     private var statisticService: StatisticServiceProtocol?
     private var currentQuestion: QuizQuestion?
     
@@ -35,7 +36,7 @@ final class MovieQuizViewController: UIViewController {
         self.questionFactory = questionFactory
         
         self.statisticService = StatisticService()
-        self.alertPresenter = AlertPresenter()
+        self.alertPresenter = ResultAlertPresenter()
         
         self.questionFactory?.requestNextQuestion()
     }
@@ -92,19 +93,19 @@ final class MovieQuizViewController: UIViewController {
     private func showNextQuestionOrResults() {
         if currentQuestionIndex == questionsAmount - 1 {
             let gameResult = GameResult(correct: correctAnswers, total: questionsAmount, date: Date())
-            statisticService?.store(gameResult)
-            guard let bestGame = statisticService?.bestGame else {
-                return
-            }
+            guard let statisticService = statisticService else { return }
+            statisticService.store(gameResult)
+            let bestGame = statisticService.bestGame
             let viewModel = QuizResultsViewModel(
                 title: Strings.roundOverText,
                 text: String(format: Strings.correctAnswersText,
                              correctAnswers,
                              questionsAmount,
+                             statisticService.gamesCount,
                              bestGame.correct,
                              bestGame.total ,
                              bestGame.date.dateTimeString,
-                             statisticService?.totalAccuracy ?? 0),
+                             statisticService.totalAccuracy),
                 buttonText: Strings.retryText)
                 
             show(quiz: viewModel)

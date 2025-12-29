@@ -68,6 +68,7 @@ extension StatisticService: StatisticServiceProtocol {
     func store(_ result: GameResult) {
         totalCorrectAnswers += result.correct
         totalQuestionsAsked += result.total
+        gamesCount += 1
         
         if result.isBetterThan(bestGame) {
             bestGame = result

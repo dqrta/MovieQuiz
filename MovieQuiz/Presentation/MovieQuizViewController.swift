@@ -68,8 +68,8 @@ final class MovieQuizViewController: UIViewController {
             self.correctAnswers = 0
             questionImageView.layer.borderWidth = 0
             questionImageView.layer.borderColor = nil
-            self.setEnabledButtons(state: true)
             self.questionFactory?.requestNextQuestion()
+            self.imageActivityIndicator.isHidden = false
         }
         alertPresenter?.show(in: self, model: model)
     }
@@ -105,7 +105,6 @@ final class MovieQuizViewController: UIViewController {
     }
     
     private func showNetworkError(message: String) {
-        hideLoadingIndicator()
         
         let model = AlertModel(title: "Ошибка",
                                message: message,
@@ -128,6 +127,7 @@ final class MovieQuizViewController: UIViewController {
             guard let statisticService = statisticService else { return }
             statisticService.store(gameResult)
             let bestGame = statisticService.bestGame
+            setEnabledButtons(state: false)
             let viewModel = QuizResultsViewModel(
                 title: Strings.roundOverText,
                 text: String(format: Strings.correctAnswersText,
@@ -143,6 +143,7 @@ final class MovieQuizViewController: UIViewController {
             show(quiz: viewModel)
         } else {
             imageActivityIndicator.isHidden = false
+            
             
             currentQuestionIndex += 1
             

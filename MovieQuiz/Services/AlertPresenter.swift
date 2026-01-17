@@ -1,6 +1,6 @@
 import UIKit
 
-class ResultAlertPresenter {
+final class ResultAlertPresenter {
     func show(in vc: UIViewController, model: AlertModel) {
         let alert = UIAlertController(
             title: model.title,
@@ -11,7 +11,6 @@ class ResultAlertPresenter {
         }
         
         alert.addAction(action)
-        
         vc.present(alert, animated: true, completion: nil)
     }
 }

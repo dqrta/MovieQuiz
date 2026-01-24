@@ -39,6 +39,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0/10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFr-L1-dPK" userLabel="Index Label">
                                                 <rect key="frame" x="321.66666666666669" y="0.0" width="40.333333333333314" height="23.666666666666668"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Index"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <color key="textColor" name="YP White"/>
                                                 <nil key="highlightedColor"/>
@@ -48,6 +49,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kuK-Jh-v9U" userLabel="Preview Image">
                                         <rect key="frame" x="0.0" y="43.666666666666629" width="362" height="543"/>
                                         <color key="backgroundColor" name="YP White"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Poster"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kuK-Jh-v9U" secondAttribute="height" multiplier="2:3" id="ZUE-Hk-a1H"/>
                                         </constraints>
@@ -70,6 +72,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cL2-MR-54a" userLabel="No Button">
                                                 <rect key="frame" x="0.0" y="0.0" width="171" height="60"/>
                                                 <color key="backgroundColor" name="YP White"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="No"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="nfN-b4-9p2"/>
                                                 </constraints>
@@ -84,14 +87,15 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="noButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sOU-iY-aoW"/>
-                                                    <action selector="noButtonDragOutside:" destination="BYZ-38-t0r" eventType="touchDragOutside" id="naL-CO-A76"/>
-                                                    <action selector="noButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="wAM-c4-Iwj"/>
+                                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e1F-Oq-Zxb"/>
+                                                    <action selector="buttonDragOutside:" destination="BYZ-38-t0r" eventType="touchDragOutside" id="O9O-9R-L8F"/>
+                                                    <action selector="buttonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="uaj-dq-jAP"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgi-Gn-e05" userLabel="Yes Button">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgi-Gn-e05" userLabel="Yes Button">
                                                 <rect key="frame" x="191" y="0.0" width="171" height="60"/>
                                                 <color key="backgroundColor" name="YP White"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Yes"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="9IE-ZE-Pa9"/>
                                                 </constraints>
@@ -106,9 +110,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="yesButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5U7-UT-cqV"/>
-                                                    <action selector="yesButtonDragOutside:" destination="BYZ-38-t0r" eventType="touchDragOutside" id="VZ4-bn-S9Q"/>
-                                                    <action selector="yesButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="vxy-Zd-aqj"/>
+                                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9o-rz-r8u"/>
+                                                    <action selector="buttonDragOutside:" destination="BYZ-38-t0r" eventType="touchDragOutside" id="fbl-j0-VcX"/>
+                                                    <action selector="buttonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="8dK-Uq-NZi"/>
                                                 </connections>
                                             </button>
                                         </subviews>
